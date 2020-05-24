@@ -1,6 +1,6 @@
 # Подглава 13.2 Установка пакета mjpeg\_sever
 
-Мы будем использовать пакет mjpeg\_server для потоковой передачи живого видео из ROS топик через HTTP в графический интерфейс нашего браузера. Установите его сейчас с помощью следующей команды: 
+Мы будем использовать пакет mjpeg\_server для потоковой передачи живого видео из ROS топика через HTTP в графический интерфейс нашего браузера. Установите его сейчас с помощью следующей команды: 
 
 `$ sudo apt-get install ros-indigo-mjpeg-server`
 
@@ -8,7 +8,7 @@
 
 `$ roslaunch rbx2_vision openni_node.launch`
 
-Если вы используете веб-камеру и предполагаете, что у вас установлен драйвер uvc\_cam с тома 1, вы можете использовать: 
+Если вы используете веб-камеру и предполагаете, что у вас установлен драйвер uvc\_cam из тома 1, вы можете использовать: 
 
 `$ roslaunch rbx2_vision uvc_cam.launch`
 
@@ -34,10 +34,11 @@
 
 Теперь, когда запущены узел камеры и mjpeg\_server, вы сможете просматривать изображение с камеры по следующему URL-адресу: 
 
-http://localhost:PORT/stream?topic=/IMAGE\_TOPIC 
+`http://localhost:PORT/stream?topic=/IMAGE_TOPIC` 
 
-где PORT - это порт, на котором мы запускаем mjpeg\_server, а IMAGE\_TOPIC - это топик изображения с камеры, которую мы хотим просмотреть. Используя порт 8080 по умолчанию и изображение topic/camera/rgb/ mage\_color, используемое как файлом openni\_node.launch, так и файлом uvc\_cam.launch, мы будем использовать URL:    
-http://localhost:8080/stream?topict=/camera/RGB/image\_color 
+где PORT - это порт, на котором мы запускаем mjpeg\_server, а IMAGE\_TOPIC - это топик изображения с камеры, которую мы хотим просмотреть. Используя порт 8080 по умолчанию и изображение topic/camera/rgb/ mage\_color, используемое как файлом openni\_node.launch, так и файлом uvc\_cam.launch, мы будем использовать URL:  
+
+`http://localhost:8080/stream?topict=/camera/RGB/image_color` 
 
 ВАЖНОЕ ПРИМЕЧАНИЕ. До недавнего времени этот URL можно было вводить прямо в браузере для просмотра потокового видео. Однако последние изменения в стандартах веб-браузера требуют, чтобы потоки mjpeg теперь были встроены в стандартную веб-страницу. 
 
@@ -67,11 +68,11 @@ http://localhost:8080/stream?topic=/camera/rgb/image_color
 
 Если вы подключены к Kinect или Xtion Pro с помощью файла openn\_node.launch, вы можете просмотреть изображение в градациях серого, используя URL: 
 
-[http://localhost:8080/stream?topic=/camera/rgb/image\_mono](http://localhost:8080/stream?topic=/camera/rgb/image_mono) 
+`http://localhost:8080/stream?topic=/camera/rgb/image_mono` 
 
 в вашем HTML-файле. 
 
-Несмотря на то, что в топике/camera/depth/image\_rect опубликовано изображение глубины, которое можно просмотреть в image\_view, оно не будет отображаться с использованием mjpeg\_server на момент написания этой статьи. Запрос на улучшение был отправлен на странице GitHub mjpeg\_server. 
+Несмотря на то, что в топике /camera/depth/image\_rect опубликовано изображение глубины, которое можно просмотреть в image\_view, оно не будет отображаться с использованием mjpeg\_server на момент написания этой статьи. Запрос на улучшение был отправлен на страницу GitHub mjpeg\_server. 
 
 Наконец, есть четыре других параметра потокового изображения: 
 
@@ -82,7 +83,7 @@ http://localhost:8080/stream?topic=/camera/rgb/image_color
 
 Для просмотра цветного изображения размером 1280x960 \(независимо от исходного разрешения\) и качеством JPEG в размере 50 используйте URL-адрес: 
 
-[http://localhost:8080/stream?topic=/camera/rgb/image\_color?width=1280?height=960?quality=50](http://localhost:8080/stream?topic=/camera/rgb/image_color?width=1280?height=960?quality=50) 
+`http://localhost:8080/stream?topic=/camera/rgb/image_color?width=1280?height=960?quality=50` 
 
 Использование более низкого качества может быть полезно для уменьшения пропускной способности, необходимой для видеопотока. 
 
